@@ -1,8 +1,8 @@
 {
   "entityType" : "WIDGET_TYPE",
   "entity" : {
-    "fqn" : "historico_geral_de_consumo_slaveid_energia_dev_DEV_VERSION",
-    "name" : "Historico Geral de Consumo(SlaveID)(Energia)(PROD-DEV)",
+    "fqn" : "historico_geral_de_consumo_slaveid_energia_dev_",
+    "name" : "Historico Geral de Consumo(SlaveID)(Energia)(PROD)",
     "deprecated" : false,
     "image" : "tb-image;/api/images/tenant/Capturar_(31).PNG",
     "description" : null,
