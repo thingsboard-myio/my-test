@@ -20,7 +20,7 @@
       "dataKeySettingsSchema" : "{}",
       "latestDataKeySettingsSchema" : "{}",
       "settingsDirective" : "",
-      "dataKeySettingsDirective" : "",
+      "dataKeySettingsDirective" : "tb-value-card-widget-settings",
       "latestDataKeySettingsDirective" : "",
       "hasBasicMode" : true,
       "basicModeDirective" : "",
