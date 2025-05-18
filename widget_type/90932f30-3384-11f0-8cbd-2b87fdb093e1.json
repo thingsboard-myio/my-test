@@ -7,7 +7,7 @@
     "image" : null,
     "description" : null,
     "descriptor" : {
-      "type" : "latest",
+      "type" : "static",
       "sizeX" : 11,
       "sizeY" : 8.5,
       "resources" : [ {
