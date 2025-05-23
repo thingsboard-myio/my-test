@@ -2,7 +2,7 @@
   "entityType" : "WIDGET_TYPE",
   "entity" : {
     "fqn" : "relat_rio_de_energia_geral_do_shopping",
-    "name" : "Relatório de Energia Geral do Shopping",
+    "name" : "Relatório de Energia Geral do Shopping PROD",
     "deprecated" : false,
     "image" : "tb-image;/api/images/tenant/Capturar_(31).PNG",
     "description" : null,
