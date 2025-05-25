@@ -11,7 +11,7 @@
       "sizeX" : 11,
       "sizeY" : 8.5,
       "resources" : [ {
-        "url" : "https://graphs.ingestion.myio-bas.com/sdk/energy-chart-sdk.umd.js"
+        "url" : "https://graphs.ingestion.myio-bas.com/sdk/energy-chart-sdk.umd.js?nocache=123123"
       } ],
       "templateHtml" : "",
       "templateCss" : "",
