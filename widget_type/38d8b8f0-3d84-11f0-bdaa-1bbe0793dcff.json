@@ -13,7 +13,7 @@
       "resources" : [ ],
       "templateHtml" : "<tb-action-button-widget \nonclick=\"window.history.back();\"\n    [ctx]=\"ctx\"\n    [widgetTitlePanel]=\"widgetTitlePanel\">\n</tb-action-button-widget>",
       "templateCss" : "#container tb-markdown-widget {\n    height: 100%;\n    display: block;\n}\n\n#container tb-markdown-widget .tb-markdown-view {\n    height: 100%;\n    overflow: auto;\n}\n",
-      "controllerScript" : "self.onInit = function() {\n    self.ctx.$scope.actionWidget.onInit();\n}\n\nself.actionSources = function() {\n    return {\n        'click': {\n            name: 'widget-action.click',\n            multiple: false\n        }\n    };\n}\n\nself.typeParameters = function() {\n    return {\n        dataKeysOptional: true,\n        datasourcesOptional: true,\n        maxDatasources: 1,\n        maxDataKeys: 0,\n        singleEntity: true,\n        previewWidth: '200px',\n        previewHeight: '80px',\n        embedTitlePanel: true,\n        overflowVisible: true,\n        hideDataSettings: true\n    };\n}\n\nself.onDestroy = function() {\n}\n\n",
+      "controllerScript" : "\n\n",
       "settingsSchema" : "",
       "dataKeySettingsSchema" : "",
       "settingsDirective" : "tb-action-button-widget-settings",
