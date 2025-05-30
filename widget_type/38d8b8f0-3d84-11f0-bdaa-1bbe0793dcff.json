@@ -13,7 +13,7 @@
       "resources" : [ ],
       "templateHtml" : "<tb-action-button-widget \n    onclick=\"backPage()\"\n    [ctx]=\"ctx\"\n    [widgetTitlePanel]=\"widgetTitlePanel\">\n</tb-action-button-widget>",
       "templateCss" : "#container tb-markdown-widget {\n    height: 100%;\n    display: block;\n}\n\n#container tb-markdown-widget .tb-markdown-view {\n    height: 100%;\n    overflow: auto;\n}\n",
-      "controllerScript" : "self.onInit= function(){\n    function backPage(){\n        \n        const domine = \"https://dashboard.myio-bas.com/\";\n        \n        if (window.history!=domine){\n            console.log(\"page not found\")\n        }\n        else {\n            window.history.back();\n        }\n        \n    }\nself.ctx.$scope.backPage =backPage;\n};\n",
+      "controllerScript" : "self.onInit= function(){\n    function backPage(){\n        console.log(\"Entrou\")\n        const domine = \"https://dashboard.myio-bas.com/\";\n        \n        if (window.history!=domine){\n            console.log(\"page not found\")\n        }\n        else {\n            window.history.back();\n        }\n        \n    }\nself.ctx.$scope.backPage =backPage;\n};\n",
       "settingsSchema" : "",
       "dataKeySettingsSchema" : "",
       "settingsDirective" : "tb-action-button-widget-settings",
