@@ -13,7 +13,7 @@
       "resources" : [ ],
       "templateHtml" : "<tb-action-button-widget \n    (click)=\"backPage()\"\n    [ctx]=\"ctx\"\n    [widgetTitlePanel]=\"widgetTitlePanel\">\n</tb-action-button-widget>",
       "templateCss" : "#container tb-markdown-widget {\n    height: 100%;\n    display: block;\n}\n\n#container tb-markdown-widget .tb-markdown-view {\n    height: 100%;\n    overflow: auto;\n}\n",
-      "controllerScript" : "self.onInit = function() {\r\n    function backPage() {\r\n        const expectedDomain = \"dashboard.myio-bas.com\";\r\n\r\n        if (window.location.hostname !== expectedDomain) {\r\n            console.log(\"page not found\");\r\n        } else {\r\n            window.history.back();\r\n        }\r\n    }\r\n\r\n    self.ctx.$scope.backPage = backPage;\r\n};\r\n",
+      "controllerScript" : "self.onInit = function() {\r\n    function backPage() {\r\n        const expectedDomain = \"dashboard.myio-bas.com\";\r\n\r\n        const referrer = document.referrer;\r\n\r\n        if (!referrer.includes(expectedDomain)) {\r\n            console.log(\"page not found\");\r\n        } else {\r\n            window.history.back();\r\n        }\r\n    }\r\n\r\n    self.ctx.$scope.backPage = backPage;\r\n};\r\n",
       "settingsSchema" : "",
       "dataKeySettingsSchema" : "",
       "settingsDirective" : "tb-action-button-widget-settings",
