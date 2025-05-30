@@ -2,7 +2,7 @@
   "entityType" : "WIDGET_TYPE",
   "entity" : {
     "fqn" : "backbutton_last_prod",
-    "name" : "backbutton last prod",
+    "name" : "backbutton last prod v2",
     "deprecated" : false,
     "image" : "tb-image;/api/images/system/action-button.svg",
     "description" : "Facilitates single-click navigation to other dashboards, states, or custom actions. Configurable settings allow for on-click action definition and conditions for button activation or deactivation. It offers various layouts and custom styling options for different states.",
