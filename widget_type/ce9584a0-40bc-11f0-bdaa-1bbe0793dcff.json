@@ -29,7 +29,7 @@
       "id" : "ce9584a0-40bc-11f0-bdaa-1bbe0793dcff"
     },
     "scada" : false,
-    "tags" : null
+    "tags" : [ "reservoir", "container", "vessel", "storage unit", "cistern", "canister", "vat", "basin", "repository", "bin", "hooper" ]
   },
   "relations" : [ ],
   "attributes" : {
