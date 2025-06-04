@@ -1,0 +1,36 @@
+{
+  "entityType" : "WIDGET_TYPE",
+  "entity" : {
+    "fqn" : "blinking_air_status_widget",
+    "name" : "Blinking Air Status",
+    "deprecated" : false,
+    "image" : null,
+    "description" : null,
+    "descriptor" : {
+      "type" : "timeseries",
+      "sizeX" : 4,
+      "sizeY" : 3,
+      "resources" : [ ],
+      "templateHtml" : "<div layout=\"column\" layout-align=\"center center\">\n  <img \n    ng-src=\"{{vm.imageUrl}}\" \n    ng-show=\"vm.imageVisible\" \n    style=\"width: 120px; height: auto; transition: opacity 0.5s ease-in-out;\"\n    ng-style=\"{'opacity': vm.imageVisible ? 1 : 0.2}\"\n  />\n</div>",
+      "templateCss" : "",
+      "controllerScript" : "self.onInit = function () {\n    const vm = {\n        imageVisible: true,\n        imageUrl: '/api/images/tenant/ar-off-model.png'\n    };\n    self.ctx.$scope.vm = vm;\n\n    self.ctx.interval = self.ctx.$interval(function () {\n        vm.imageVisible = !vm.imageVisible;\n        self.ctx.detectChanges();\n    }, 1200);\n};\n\nself.onDataUpdated = function () {\n    try {\n        const value = self.ctx.data[0].data[0][1];\n        const vm = self.ctx.$scope.vm;\n        vm.imageUrl = value > 100 ? \n            '/api/images/tenant/ar-on-model.png' : \n            '/api/images/tenant/ar-off-model.png';\n        self.ctx.detectChanges();\n    } catch (e) {\n        console.warn('Erro ao processar telemetria:', e);\n    }\n};\n\nself.onDestroy = function () {\n    if (self.ctx.interval) {\n        self.ctx.$interval.cancel(self.ctx.interval);\n    }\n};",
+      "settingsSchema" : "{}",
+      "dataKeySettingsSchema" : "{}",
+      "latestDataKeySettingsSchema" : "{}",
+      "hasBasicMode" : true,
+      "useDashboardTimewindow" : true
+    },
+    "externalId" : null,
+    "resources" : null,
+    "id" : {
+      "entityType" : "WIDGET_TYPE",
+      "id" : "e4cf81d0-4157-11f0-bdaa-1bbe0793dcff"
+    },
+    "scada" : false,
+    "tags" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}
