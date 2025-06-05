@@ -2,7 +2,7 @@
   "entityType" : "WIDGET_TYPE",
   "entity" : {
     "fqn" : "water_level",
-    "name" : "Water Level White",
+    "name" : "Water Level White Old",
     "deprecated" : false,
     "image" : "tb-image;/api/images/tenant/Capturar_(25).PNG",
     "description" : "Widget indicates the level of liquid in Vertical cylinder tank.",
