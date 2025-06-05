@@ -2,7 +2,7 @@
   "entityType" : "WIDGET_TYPE",
   "entity" : {
     "fqn" : "water_level",
-    "name" : "Water Level White Test",
+    "name" : "Water Level White V2",
     "deprecated" : false,
     "image" : "tb-image;/api/images/tenant/Capturar_(25).PNG",
     "description" : "Widget indicates the level of liquid in Vertical cylinder tank.",
@@ -12,7 +12,7 @@
       "sizeY" : 4.5,
       "resources" : [ ],
       "templateHtml" : "<div id=\"divContent\">\n<tb-liquid-level-widget \n    [ctx]=\"ctx\"\n    [widgetTitlePanel]=\"widgetTitlePanel\">\n</tb-liquid-level-widget>\n<span>Altura: {{waterLevel}} {{cardTitle}}cm.c.a</span>\n</div>",
-      "templateCss" : ".tb-liquid-level-widget { height: 90%; }\nspan { width: 100%; height: 10%; display: flex; justify-content: center; }\n#divContent { width: 100%; height: 80%; }",
+      "templateCss" : ".tb-liquid-level-widget { height: 90%; }\nspan { width: 100%; height: 10%; display: flex; justify-content: center; color: #000; }\n#divContent { width: 100%; height: 80%; background-color: #ffffff; }",
       "controllerScript" : "function fetchData(){\n const subscriptionData = self.ctx.data[1].data;\n var data = !subscriptionData.length || !subscriptionData[0][1] ? null : subscriptionData[0][1];\n console.log(subscriptionData);\n self.ctx.$scope.waterLevel = data;\n}\n\nself.onInit = function() {\n self.ctx.$scope.liquidLevelWidget.onInit();\n const cardTitle = self.ctx.settings.cardTitle;\n self.ctx.$scope.cardTitle = cardTitle;\n fetchData();\n}\n\nself.onDataUpdated = function() {\n self.ctx.$scope.liquidLevelWidget.update();\n const cardTitle = self.ctx.settings.cardTitle;\n fetchData();\n self.ctx.$scope.cardTitle = cardTitle;\n}\n\nself.typeParameters = function() {\n return {\n     maxDatasources: 1,\n     maxDataKeys: 2,\n     singleEntity: true,\n     previewWidth: '250px',\n     previewHeight: '250px',\n     embedTitlePanel: true\n };\n};\n\nself.onDestroy = function() {}\n\nself.actionSources = function() {\n return {\n     'cardClick': {\n         name: 'widget-action.card-click',\n         multiple: false\n     }\n };\n};",
       "settingsSchema" : "{\n    \"schema\": {\n        \"type\": \"object\",\n        \"title\": \"Settings\",\n        \"properties\": {\n            \"cardTitle\": {\n                \"type\": \"string\",\n                \"title\": \"Título\"\n            }\n        },\n        \"required\": [\"cardTitle\"]\n    },\n    \"form\": [\"cardTitle\"]\n}",
       "dataKeySettingsSchema" : "{}\n",
