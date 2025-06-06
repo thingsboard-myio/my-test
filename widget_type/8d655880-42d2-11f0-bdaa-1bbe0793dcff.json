@@ -2,7 +2,7 @@
   "entityType" : "WIDGET_TYPE",
   "entity" : {
     "fqn" : "solenoide_on_off_v_2_0_0",
-    "name" : "Solenoide On/Off V.2.0.0",
+    "name" : "Solenoide Sem On/Off V.2.0.0",
     "deprecated" : false,
     "image" : null,
     "description" : null,
