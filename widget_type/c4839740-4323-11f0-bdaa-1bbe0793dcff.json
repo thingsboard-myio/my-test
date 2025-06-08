@@ -17,6 +17,7 @@
       "settingsSchema" : "{\r\n  \"schema\": {\r\n    \"type\": \"object\",\r\n    \"title\": \"Settings\",\r\n    \"properties\": {\r\n        \"state\":{\r\n        \"type\": \"string\",\r\n        \"title\": \"Dashboard Dashboard state\",\r\n        \"default\": \"\"\r\n        },\r\n        \"state_Online\":{\r\n        \"type\": \"string\",\r\n        \"title\": \"Dashboard Dashboard state Online\",\r\n        \"default\": \"\"\r\n        },\r\n        \"energia\":{\r\n        \"type\": \"string\",\r\n        \"title\": \"State de energia\",\r\n        \"default\": \"\"\r\n        }\r\n    }\r\n  }\r\n}",
       "dataKeySettingsSchema" : "{}\n",
       "settingsDirective" : "backGroundColor",
+      "dataKeySettingsDirective" : "backGroundColor",
       "defaultConfig" : "{\"datasources\":[{\"type\":\"function\",\"name\":\"function\",\"dataKeys\":[{\"name\":\"f(x)\",\"type\":\"function\",\"label\":\"Random\",\"color\":\"#2196f3\",\"settings\":{},\"_hash\":0.15479322438769105,\"funcBody\":\"var value = prevValue + Math.random() * 100 - 50;\\nvar multiplier = Math.pow(10, 2 || 0);\\nvar value = Math.round(value * multiplier) / multiplier;\\nif (value < -1000) {\\n\\tvalue = -1000;\\n} else if (value > 1000) {\\n\\tvalue = 1000;\\n}\\nreturn value;\"}]}],\"timewindow\":{\"realtime\":{\"timewindowMs\":60000}},\"showTitle\":true,\"backgroundColor\":\"#fff\",\"color\":\"rgba(0, 0, 0, 0.87)\",\"padding\":\"8px\",\"settings\":{},\"title\":\"Blinking status Air List Consumption/temp link v3 - Rodrigo\",\"decimals\":null}"
     },
     "externalId" : null,
