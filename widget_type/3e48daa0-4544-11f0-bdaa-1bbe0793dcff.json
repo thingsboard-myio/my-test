@@ -4,7 +4,7 @@
     "fqn" : "fancoil_agendamento_setpoint_",
     "name" : "Fancoil_Agendamento_SetPoint_",
     "deprecated" : false,
-    "image" : null,
+    "image" : "tb-image;/api/images/tenant/Screenshot from 2024-04-11 20-14-06.png",
     "description" : null,
     "descriptor" : {
       "type" : "rpc",
