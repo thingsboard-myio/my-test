@@ -7,7 +7,7 @@
     "image" : "tb-image;/api/images/tenant/Screenshot from 2024-04-11 20-14-06.png",
     "description" : null,
     "descriptor" : {
-      "type" : "static",
+      "type" : "latest",
       "sizeX" : 4,
       "sizeY" : 2,
       "resources" : [ ],
