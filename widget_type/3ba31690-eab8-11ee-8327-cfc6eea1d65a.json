@@ -1,0 +1,37 @@
+{
+  "entityType" : "WIDGET_TYPE",
+  "entity" : {
+    "fqn" : "consumption",
+    "name" : "Energy",
+    "deprecated" : false,
+    "image" : "tb-image;/api/images/tenant/Capturar_(17).PNG",
+    "description" : null,
+    "descriptor" : {
+      "type" : "timeseries",
+      "sizeX" : 7.5,
+      "sizeY" : 4.5,
+      "resources" : [ ],
+      "templateHtml" : "<div id=\"title\" [ngStyle]=\"{'background-color': '#673AB5'}\">\n    <p id=\"titulo\">{{TituloWidget}}</p>\n\n      <svg width=\"64\" height=\"64\" viewBox=\"0 0 64 64\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M49.2401 3.15C49.1006 2.9502 48.9152 2.78686 48.6994 2.67374C48.4836 2.56061 48.2437 2.50103 48.0001 2.5H25.0001C24.6927 2.50434 24.3939 2.60242 24.1437 2.78111C23.8936 2.95981 23.7039 3.21061 23.6001 3.5L14.6001 26.5C14.5228 26.7251 14.4999 26.9653 14.5331 27.201C14.5663 27.4367 14.6548 27.6612 14.7913 27.8562C14.9277 28.0512 15.1084 28.2111 15.3185 28.323C15.5286 28.4349 15.7621 28.4956 16.0001 28.5H21.1501L14.5301 59.69C14.4721 60.0098 14.5188 60.3398 14.6633 60.6309C14.8079 60.922 15.0424 61.1587 15.3322 61.3058C15.622 61.453 15.9516 61.5027 16.2719 61.4476C16.5922 61.3925 16.8861 61.2355 17.1101 61L47.1101 28C47.2984 27.7833 47.421 27.5174 47.4635 27.2334C47.506 26.9495 47.4668 26.6593 47.3503 26.3969C47.2338 26.1346 47.0449 25.9108 46.8057 25.7519C46.5666 25.5931 46.2871 25.5057 46.0001 25.5H41.2001L49.4001 4.55C49.4893 4.32122 49.5213 4.07415 49.4934 3.83019C49.4655 3.58624 49.3786 3.35276 49.2401 3.15V3.15ZM37.6201 26.42C37.5397 26.6072 37.4982 26.8087 37.4982 27.0124C37.4982 27.2161 37.5397 27.4177 37.6202 27.6049C37.7007 27.792 37.8184 27.9608 37.9662 28.1009C38.1141 28.2411 38.2889 28.3496 38.4801 28.42C39.8536 28.5346 41.2327 28.568 42.6101 28.52L18.6101 54.91L24.4601 27.33C24.5139 27.0348 24.4863 26.7306 24.3801 26.45C24.2663 26.1753 24.0755 25.9395 23.8306 25.7709C23.5857 25.6023 23.2973 25.5083 23.0001 25.5H18.2001L26.0001 5.5H45.8001L37.6201 26.42Z\" fill=\"#9d6feb\"></path>\n</svg>   \n\n   \n   \n        <p id=\"conteudo\">{{consumption}}</p>\n        \n    </div>\n    \n",
+      "templateCss" : "\n\n#title{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    gap:10%;\n    width: 100%;\n    height: 100%;\n}\n\n#container {\n    overflow: auto;\n}\n\nsvg{\n    height: 80%;\n    width: 30%;\n    z-index: 1;\n    position: absolute;\n    left: 10px;\n    bottom:1px;\n}\n\np{\n    margin:0;\n    z-index: 2;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\n#titulo{\n    font-size: 1.1rem;\n}\n#conteudo{\n    font-size: 1.6rem;\n    font-weight: bold;\n}\n#legenda{\n    font-size: 0.9rem;\n    font-weight: 400;\n    margin: 0;\n}",
+      "controllerScript" : "function getSum(data) {\n    const totalSumKWh = data.reduce((acc, reading) => {\n        return acc + reading[1];\n    }, 0);\n\n    console.log('SOMA TOTAL (kWh)', totalSumKWh);\n\n    // Determine the appropriate unit and value\n    let value, unit;\n    if (totalSumKWh >= 1e6) { // GWh: >= 1,000,000 kWh\n        value = totalSumKWh / 1e6;\n        unit = 'GWh';\n    } else if (totalSumKWh >= 1e3) { // MWh: >= 1,000 kWh\n        value = totalSumKWh / 1e3;\n        unit = 'MWh';\n    } else if (totalSumKWh >= 1) { // kWh: >= 1 kWh\n        value = totalSumKWh;\n        unit = 'kWh';\n    } else { // Wh: < 1 kWh\n        value = totalSumKWh * 1e3;\n        unit = 'Wh';\n    }\n\n    // Format to 2 decimal places and append unit\n    return `${value.toFixed(2)} ${unit}`;\n}\n\nself.onInit = function() {\n    var data = self.ctx.data[0].data;\n    console.log(self.ctx);\n    \n    var TituloWidget = self.ctx.settings.TituloWidget;\n    self.ctx.$scope.TituloWidget = TituloWidget;\n    self.ctx.$scope.consumption = getSum(data);\n    \n    self.ctx.detectChanges();\n}\n\nself.onDataUpdated = function() {\n    var data = self.ctx.data[0].data;\n\n    self.ctx.$scope.consumption = getSum(data);\n    self.ctx.detectChanges();\n}\n\nself.onLatestDataUpdated = function() {\n    var TituloWidget = self.ctx.settings.TituloWidget;\n    var data = self.ctx.data[0].data;\n\n    self.ctx.$scope.consumption = getSum(data);\n    \n    self.ctx.detectChanges();\n}",
+      "settingsSchema" : "{\"schema\": {\r\n    \"type\": \"object\",\r\n    \"title\": \"Settings\",\r\n    \"properties\": {\r\n      \"TituloWidget\": {\r\n        \"title\": \"Título do Widget\",\r\n        \"type\": \"string\"  \r\n      }\r\n    },\r\n    \"required\": [\"TituloWidget\"]\r\n  },\r\n  \"form\": [\"TituloWidget\"]\r\n}",
+      "dataKeySettingsSchema" : "{}\n",
+      "settingsDirective" : "",
+      "dataKeySettingsDirective" : "tb-value-card-widget-settings",
+      "hasBasicMode" : true,
+      "defaultConfig" : "{\"datasources\":[{\"type\":\"function\",\"name\":\"function\",\"dataKeys\":[{\"name\":\"f(x)\",\"type\":\"function\",\"label\":\"Random\",\"color\":\"#2196f3\",\"settings\":{},\"_hash\":0.15479322438769105,\"funcBody\":\"var value = prevValue + Math.random() * 100 - 50;\\nvar multiplier = Math.pow(10, 2 || 0);\\nvar value = Math.round(value * multiplier) / multiplier;\\nif (value < -100) {\\n\\tvalue = -100;\\n} else if (value > 100) {\\n\\tvalue = 100;\\n}\\nreturn value;\",\"aggregationType\":null,\"units\":null,\"decimals\":null,\"usePostProcessing\":null,\"postFuncBody\":null}],\"alarmFilterConfig\":{\"statusList\":[\"ACTIVE\"]}}],\"timewindow\":{\"realtime\":{\"timewindowMs\":60000}},\"showTitle\":false,\"backgroundColor\":\"#673AB500\",\"color\":\"rgb(255, 255, 255)\",\"padding\":\"0\",\"settings\":{\"TituloWidget\":\"Consumo\"},\"title\":\"Consumption\",\"showTitleIcon\":false,\"titleTooltip\":\"\",\"dropShadow\":true,\"enableFullscreen\":false,\"widgetStyle\":{},\"widgetCss\":\"\",\"titleStyle\":{\"fontSize\":\"16px\",\"fontWeight\":400},\"pageSize\":1024,\"noDataDisplayMessage\":\"\",\"borderRadius\":\"10px\",\"configMode\":\"advanced\",\"useDashboardTimewindow\":true,\"displayTimewindow\":true}"
+    },
+    "externalId" : null,
+    "resources" : null,
+    "id" : {
+      "entityType" : "WIDGET_TYPE",
+      "id" : "3ba31690-eab8-11ee-8327-cfc6eea1d65a"
+    },
+    "scada" : false,
+    "tags" : null
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}
