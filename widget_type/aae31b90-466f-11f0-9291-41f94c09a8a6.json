@@ -7,7 +7,7 @@
     "image" : "tb-image;/api/images/tenant/horizontal-ball-valve.svg",
     "description" : null,
     "descriptor" : {
-      "type" : "latest",
+      "type" : "timeseries",
       "sizeX" : 6.5,
       "sizeY" : 4,
       "resources" : [ ],
@@ -17,7 +17,7 @@
       "settingsSchema" : "{\r\n    \"schema\": {\r\n        \"type\": \"object\",\r\n        \"title\": \"Settings\",\r\n        \"properties\": {\r\n            \"centralId\": {\r\n                \"type\": \"string\",\r\n                \"title\": \"Id da Central\"\r\n            }\r\n        },\r\n        \"required\": [\"centralId\"]\r\n    },\r\n    \"form\": [\r\n        \"centralId\"\r\n    ]\r\n}",
       "dataKeySettingsSchema" : "{}\n",
       "settingsDirective" : "",
-      "dataKeySettingsDirective" : "",
+      "dataKeySettingsDirective" : "opened",
       "hasBasicMode" : false,
       "defaultConfig" : "{\"datasources\":[{\"type\":\"function\",\"name\":\"function\",\"dataKeys\":[{\"name\":\"f(x)\",\"type\":\"function\",\"label\":\"${entityName}\",\"color\":\"#4caf50\",\"settings\":{},\"_hash\":0.6972230379918407,\"funcBody\":\"var value = 'on'\\nreturn value;\",\"aggregationType\":null,\"units\":null,\"decimals\":null,\"usePostProcessing\":null,\"postFuncBody\":null}],\"alarmFilterConfig\":{\"statusList\":[\"ACTIVE\"]}}],\"timewindow\":{\"realtime\":{\"timewindowMs\":60000}},\"showTitle\":false,\"backgroundColor\":\"#673AB500\",\"color\":\"rgb(255, 255, 255)\",\"padding\":\"0\",\"settings\":{\"centralId\":\"sdfbasdfbsderfbxzdfbserfxzdcvbserb\"},\"title\":\"Solenoide Sem On/Off V.2.0.1\",\"showTitleIcon\":false,\"titleTooltip\":\"\",\"dropShadow\":true,\"enableFullscreen\":false,\"widgetStyle\":{},\"widgetCss\":\"\",\"titleStyle\":{\"fontSize\":\"16px\",\"fontWeight\":400},\"pageSize\":1024,\"noDataDisplayMessage\":\"\",\"borderRadius\":\"10px\",\"configMode\":\"advanced\",\"useDashboardTimewindow\":true,\"displayTimewindow\":true,\"enableDataExport\":false}"
     },
