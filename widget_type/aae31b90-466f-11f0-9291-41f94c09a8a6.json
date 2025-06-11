@@ -13,7 +13,7 @@
       "resources" : [ ],
       "templateHtml" : "<div class=\"SVGdiv\"></div>\r\n",
       "templateCss" : ".SVGdiv {\r\n    height: 100%;\r\n    width: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n",
-      "controllerScript" : "/* jshint esversion: 8 */\r\n\r\nself.onInit = function() {\r\n    fetchData();\r\n    self.ctx.detectChanges();\r\n};\r\n\r\nself.onDataUpdated = function() {\r\n    fetchData();\r\n    self.ctx.detectChanges();\r\n};\r\n\r\nfunction fetchData() {\r\n    const subscriptionData = self.ctx.data?.[0]?.data;\r\n    const dataValue = subscriptionData?.[0]?.[1];\r\n\r\n    // Interpreta \"on\" como aberto, \"off\" como fechado\r\n    const isOpened = dataValue === 'on';\r\n\r\n    self.ctx.values = {\r\n        opened: isOpened\r\n    };\r\n}\r\n",
+      "controllerScript" : "/* jshint esversion: 8 */\r\n\r\nself.onInit = function() {\r\n    fetchData();\r\n    self.ctx.detectChanges();\r\n};\r\n\r\nself.onDataUpdated = function() {\r\n    fetchData();\r\n    self.ctx.detectChanges();\r\n};\r\n\r\nfunction fetchData() {\r\n    console.log(\"Solenoide Sem On/Off V.2.0.1 >>> fetchData >>> \", self.ctx);\r\n    \r\n    const subscriptionData = self.ctx.data?.[0]?.data;\r\n    const dataValue = subscriptionData?.[0]?.[1];\r\n\r\n    // Interpreta \"on\" como aberto, \"off\" como fechado\r\n    const isOpened = dataValue === 'on';\r\n\r\n    self.ctx.values = {\r\n        opened: isOpened\r\n    };\r\n}\r\n",
       "settingsSchema" : "{\r\n    \"schema\": {\r\n        \"type\": \"object\",\r\n        \"title\": \"Settings\",\r\n        \"properties\": {\r\n            \"centralId\": {\r\n                \"type\": \"string\",\r\n                \"title\": \"Id da Central\"\r\n            }\r\n        },\r\n        \"required\": [\"centralId\"]\r\n    },\r\n    \"form\": [\r\n        \"centralId\"\r\n    ]\r\n}",
       "dataKeySettingsSchema" : "{}\n",
       "settingsDirective" : "",
@@ -27,7 +27,7 @@
       "entityType" : "WIDGET_TYPE",
       "id" : "aae31b90-466f-11f0-9291-41f94c09a8a6"
     },
-    "scada" : false,
+    "scada" : true,
     "tags" : null
   },
   "relations" : [ ],
