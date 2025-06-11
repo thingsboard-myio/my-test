@@ -4,7 +4,7 @@
     "fqn" : "solenoide_sem_on_off_v_2_0_1",
     "name" : "Solenoide Sem On/Off V.2.0.1",
     "deprecated" : false,
-    "image" : null,
+    "image" : "tb-image;/api/images/tenant/horizontal-ball-valve.svg",
     "description" : null,
     "descriptor" : {
       "type" : "latest",
