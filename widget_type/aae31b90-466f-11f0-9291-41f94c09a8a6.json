@@ -27,7 +27,7 @@
       "entityType" : "WIDGET_TYPE",
       "id" : "aae31b90-466f-11f0-9291-41f94c09a8a6"
     },
-    "scada" : false,
+    "scada" : true,
     "tags" : null
   },
   "relations" : [ ],
